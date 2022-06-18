@@ -42,8 +42,7 @@ public class Test03 {
 		points.add(10);
 		points.add(9);
 		points.add(4);
-		
-		
+
 		points.sort(Comparator.naturalOrder()); 
 		
 		Integer min = points.get(0);
@@ -70,30 +69,27 @@ public class Test03 {
 			 
 			 
 		// 3. 로또 번호
-		/*	 
+		 
 		List<Integer> lotNum = new ArrayList<>();	 
 			 
 		Random random = new Random();
-			 
-		for(int i = 0; i < 5; i++) {
-			
-			Integer randomNum = lotNum.get(i);
-			
-			randomNum = random.nextInt(45) + 1;	
-			
-		}	
-					
-			iter = lotNum.iterator();
-			while(iter.hasNext()) {
-				Integer number= iter.next();
+		
+				 
+			for(int i = 0; i < 6; i++) {
+				int randomNum = random.nextInt(45) + 1;	
 				
-				if(lotNum.contains(number)) {
-					iter.remove();
+				if(lotNum.contains(randomNum)) {
+					i--; // 중복되어도 i가 증가하면 안되니까
+					continue;
 				}
-				
+				lotNum.add(randomNum); // 리스트에 하나씩 추가(할당x)
 			}
-			System.out.println(lotNum);
-			*/
+		lotNum.sort(Comparator.naturalOrder());
+		System.out.println(lotNum);
+		
+		
+		 
+			
 			 
 		// 4. 회원 추가하기
 		
@@ -114,10 +110,25 @@ public class Test03 {
 		memberList2.add("루피");
 			
 		System.out.println(memberList2);
-		// System.out.println(memberList + memberList2);
 		
+		
+		for(int i = 0; i < memberList2.size(); i++) {
+			
+			String newMember = memberList2.get(i);
+			int count = 1; //중복 확인 변수
+		
+			while(memberList.contains(newMember)) {
+				newMember = memberList2.get(i) + count;
+				count++;
+			}
+		
+			memberList.add(newMember);
 		}
+			
+		System.out.println(memberList);
+	  }
+	}
+	  
 
-  }
 
 

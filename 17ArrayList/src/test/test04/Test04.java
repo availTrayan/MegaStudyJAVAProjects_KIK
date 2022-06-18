@@ -13,14 +13,10 @@ public class Test04 {
 		List<ProductManage> manage = new ArrayList<>();
 		
 		// 1. 제품 추가
-		ProductManage pm = new ProductManage("새우깡", 1200, 150);
-		manage.add(pm);
-		pm = new ProductManage("육개장", 850, 30);
-		manage.add(pm);
-		pm = new ProductManage("신라면", 800, 15);
-		manage.add(pm);
-		pm = new ProductManage("천마표 팝콘", 1500, 0);
-		manage.add(pm);
+		manage.add(new ProductManage("새우깡", 1200, 150));
+		manage.add(new ProductManage("육개장", 850, 30));
+		manage.add(new ProductManage("신라면", 800, 15));
+		manage.add(new ProductManage("천마표 팝콘", 1500, 0));
 		
 		System.out.println(manage);
 		
@@ -69,7 +65,7 @@ public class Test04 {
 		ProductManage item = iter.next();
 		
 		if(item.getRemain() < 30) {
-			System.out.println("제품명 : " + item.getName() + " 가격 : " + item.getPrice() + " 재고 : " + item.getRemain());
+			System.out.println("(제품명 : " + item.getName() + " 가격 : " + item.getPrice() + " 재고 : " + item.getRemain() + ")");
 		}
 	}
 		
